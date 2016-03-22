@@ -1,0 +1,93 @@
+
+<div product-details>
+    <div class="col-md-9 product-price1">
+        <div class="col-md-5 single-top">
+            <div class="flexslider">
+                <img src="../../../../images/default.jpg" />
+            </div>
+            <!-- FlexSlider -->
+
+        </div>
+        <div class="col-md-7 single-top-in simpleCart_shelfItem">
+            <div class="single-para ">
+                <h4>{{::productDetails.ProductName}}</h4>
+                <div class="star-on">
+
+                    <div class="review">
+                        <a href="#"> </a>
+
+                    </div>
+                    <div class="clearfix"> </div>
+                </div>
+
+                <h5 class="item_price">$ {{::productDetails.Price}}</h5>
+                <p>{{::productDetails.Description}} </p>
+                <a href="#" class="add-cart item_add">ADD TO CART</a>
+
+            </div>
+        </div>
+        <div class="clearfix"> </div>
+        <!---->
+        <div class="cd-tabs">
+            <nav>
+                <ul class="cd-tabs-navigation">
+
+                    <li><a data-content="television" href="" class="selected ">Reviews ({{ reviews.length}})</a></li>
+                </ul>
+            </nav>
+            <ul class="cd-tabs-content">
+
+                <li data-content="television" class="selected">
+                    <div class="comments-top-top" ng-repeat="review in reviews">
+                        <div class="top-comment-left">
+                            <img class="img-responsive" src="../../libs/_layoutAssets/images/co.png" alt="">
+                        </div>
+                        <div class="top-comment-right">
+                            <h6><a href="#">{{review.UserName}}</a></h6>
+                            <ul class="star-footer">
+                                <li ng-repeat="r in [] | range: review.Rating"><a href="#"><i> </i></a></li>
+                            </ul>
+                            <p>{{review.Comment}}</p>
+                        </div>
+                        <div class="clearfix"> </div>
+                    </div>
+
+                   <form name="reviewForm" ng-submit="submitForm(reviewForm)" novalidate>
+                       <div class="comments-top-top">
+                           <div class="top-comment-left">
+                               <img class="img-responsive" src="../../libs/_layoutAssets/images/co.png" alt="">
+                           </div>
+                           <div class="top-comment-right">
+                               <h6><a href="#"></a></h6>
+                               <div class="form-group">
+                                   <label>*Rating</label>
+                                   <input type="number"  ng-model="reviewForm.rating" class="form-control" min="1" max="10"  required>
+                               </div>
+                               <div class="form-group">
+                                   <span class="has-error">Rating 1 - 10</span>
+                               </div>
+                               <div class="form-group">
+                                   <label>*Comment</label>
+                                   <textarea   rows="5"  class="form-control" ng-model="reviewForm.comment" ng-maxlength="100"  required>{{reviewForm.comment}}</textarea>
+                               </div>
+                               <div class="form-group">
+                                    <span class="has-error">* for Required field.</span>
+                               </div>
+                               <div class="form-group">
+                                   <span class="has-error">Comment must below 100.</span>
+                               </div>
+                           </div>
+                           <div class="clearfix"> </div>
+
+                       </div>
+                       <button class="btn" ng-disabled="reviewForm.$invalid" type="submit">ADD REVIEW</button>
+                   </form>
+
+                </li>
+                <div class="clearfix"></div>
+            </ul>
+        </div>
+    </div>
+
+    <div class="clearfix"> </div>
+</div>

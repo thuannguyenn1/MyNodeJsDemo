@@ -1,0 +1,37 @@
+﻿
+
+<div>
+
+    <div class="col-md-9 product1" style="color: red" ng-if="productGroup.length == 0">
+        No products were found. Please go back.
+    </div>
+    <div class="col-md-9 product1" data-ng-repeat="products in productGroup" >
+        <div class=" bottom-product" >
+            <div class="col-md-4 bottom-cd simpleCart_shelfItem" ng-repeat="product in products">
+                <div class="product-at ">
+                    <a href="#product/{{product.Id}}/details">
+                        <img class="img-responsive" style="width: 100%;" src="../../../../images/default.jpg" alt="">
+                        <div class="pro-grid">
+                            <span class="buy-in">Details</span>
+                        </div>
+                    </a>
+                </div>
+                <p class="tun">{{ ::product.Description }}</p>
+                <a href="#" class="item_add"><p class="number item_price">{{::product.BrandName}} | {{::product.ProductName}}</p></a>
+            </div>
+            <div class="clearfix"> </div>
+        </div>
+    </div>
+    <div class="clearfix"> </div>
+    <nav class="in">
+        <ul class="pagination">
+            <li class="disabled"><a href="#" aria-label="Previous"><span aria-hidden="true">«</span></a></li>
+            <li class="active"><a href="#">1 <span class="sr-only">(current)</span></a></li>
+            <li><a href="#">2 <span class="sr-only"></span></a></li>
+            <li><a href="#">3 <span class="sr-only"></span></a></li>
+            <li><a href="#">4 <span class="sr-only"></span></a></li>
+            <li><a href="#">5 <span class="sr-only"></span></a></li>
+            <li> <a href="#" aria-label="Next"><span aria-hidden="true">»</span> </a> </li>
+        </ul>
+    </nav>
+</div>
